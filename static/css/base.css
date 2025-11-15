@@ -320,6 +320,45 @@ input[type="number"] {
   z-index: 3000;    
 }
 
+/* Footer */
+.footer-section {
+  background-color: var(--accent-pink);
+  color: white;
+  font-family: 'Roboto Mono', monospace;
+}
+
+.footer-section p {
+  margin: 0.3rem 0;
+}
+
+.social-favicons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  font-size: 2rem;
+}
+
+.social-favicons a {
+  color: white;
+  background-color: var(--accent-blue);
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+.social-favicons a:hover {
+  background-color: white;
+  color: var(--accent-blue);
+  transform: scale(1.2);
+}
+
+.footer-section .small {
+  font-size: 0.85rem;
+}
+
 /* Media queries */
 @media (max-width: 768px) {
   .h1-block {
