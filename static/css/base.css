@@ -178,6 +178,16 @@ html, body {
   font-size: 1.1rem;
 }
 
+/* Remove arrows on product details*/
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
 /* Media queries */
 @media (max-width: 768px) {
   .h1-block {
