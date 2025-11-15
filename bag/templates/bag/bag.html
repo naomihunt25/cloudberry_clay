@@ -4,7 +4,7 @@
 {% block content %}
 <div class="overlay"></div>
 
-<div class="container-fluid mt-5 pt-5">
+<div class="container-fluid mt-3">
   <div class="row">
     <div class="col text-center">
       <h2 class="logo-font text-accent-blue mb-3">Your Shopping Bag</h2>
@@ -68,7 +68,7 @@
           </table>
         </div>
 
-        <div class="text-right mt-4">
+        <div class="text-right mt-3">
           <p class="mb-1"><strong>Products:</strong> £{{ total|floatformat:2 }}</p>
           <p class="mb-1"><strong>Delivery:</strong> £{{ delivery|floatformat:2 }}</p>
           <h4 class="text-accent-blue mt-2">Order Total: £{{ grand_total|floatformat:2 }}</h4>
@@ -90,7 +90,7 @@
     </div>
 
   {% else %}
-    <div class="row justify-content-center mt-5">
+    <div class="row justify-content-center mt-3">
       <div class="col-12 col-lg-8 text-center">
         <h4 class="text-muted mb-4">Your shopping bag is empty.</h4>
         <p class="text-muted mb-4">Browse our products and add your favourites to your bag to get started.</p>

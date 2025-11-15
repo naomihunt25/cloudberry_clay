@@ -4,7 +4,7 @@
 {% block content %}
 <div class="overlay"></div>
 
-<div class="container-fluid mt-5 pt-4">
+<div class="container-fluid mt-">
     <!-- Page Heading -->
     <div class="row">
         <div class="col text-center">
@@ -50,12 +50,12 @@
     <div class="row justify-content-center mb-4">
         <div class="col-md-10 text-center filter-container">
             <strong class="mr-2 text-secondary">Filter by Category:</strong>
-            <a href="{% url 'products' %}" class="btn category-btn {% if not request.GET.category %}active{% endif %}">
+            <a href="{% url 'products' %}" class="btn {% if not request.GET.category %}active{% endif %}">
                 All
             </a>
             {% for category in categories %}
                 <a href="?category={{ category.name }}"
-                   class="btn category-btn {% if request.GET.category == category.name %}active{% endif %}">
+                   class="btn {% if request.GET.category == category.name %}active{% endif %}">
                    {{ category.display_name }}
                 </a>
             {% endfor %}

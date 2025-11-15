@@ -26,4 +26,48 @@
   </p>
 </section>
 
+<!-- Categories -->
+<section class="container py-5">
+  <h3 class="text-center logo-font mb-5 text-accent-pink">Explore Our Collections</h3>
+  <div class="row justify-content-center">
+
+    <!-- Homeware -->
+    <div class="col-10 col-sm-6 col-md-4 mb-4">
+      <div class="card border-0 shadow-sm category-card h-100">
+        <img src="{{ MEDIA_URL }}marmalade_haze_vase.webp" class="card-img-top" alt="Homeware">
+        <div class="card-body text-center">
+          <h4 class="card-title logo-font text-accent-blue">Homeware</h4>
+          <p class="card-text text-secondary">Stylish and unique clay pieces to decorate and brighten your space.</p>
+          <a href="{% url 'products' %}?category=homeware" class="category-btn">Shop Homeware</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Jewellery Holders -->
+    <div class="col-10 col-sm-6 col-md-4 mb-4">
+      <div class="card border-0 shadow-sm category-card h-100">
+        <img src="{{ MEDIA_URL }}rosebud_ring_holder.webp" class="card-img-top" alt="Jewellery Holders">
+        <div class="card-body text-center">
+          <h4 class="card-title logo-font text-accent-blue">Jewellery Holders</h4>
+          <p class="card-text text-secondary">Keep your treasures safe in beautifully handcrafted jewellery holders.</p>
+          <a href="{% url 'products' %}?category=jewellery_holders" class="category-btn">Shop Jewellery Holders</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Kitchen -->
+    <div class="col-10 col-sm-6 col-md-4 mb-4">
+      <div class="card border-0 shadow-sm category-card h-100">
+        <img src="{{ MEDIA_URL }}aqua_dream_plate.webp" class="card-img-top" alt="Dining">
+        <div class="card-body text-center">
+          <h4 class="card-title logo-font text-accent-blue">Dining</h4>
+          <p class="card-text text-secondary">Add a handmade touch to your dining table and kitchen decor.</p>
+          <a href="{% url 'products' %}?category=dining" class="category-btn">Shop Dining</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 {% endblock %}
