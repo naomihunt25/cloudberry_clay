@@ -222,6 +222,104 @@ input[type="number"] {
   color: white;
 }
 
+/* Toasts */
+
+.custom-toast {
+  border: 2px solid transparent;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  max-width: 350px;
+  font-family: 'Roboto Mono', monospace;
+}
+
+.toast-capper {
+  height: 5px;
+}
+
+.toast-header {
+  border-bottom: 1px solid #eee;
+  font-weight: 600;
+}
+
+.toast-body {
+  font-size: 0.9rem;
+  padding: 1rem;
+}
+
+.arrow-up {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  position: absolute;
+  top: -10px;
+  left: 20px;
+}
+
+/* Success */
+.success-toast {
+  border-color: var(--accent-blue);
+}
+.arrow-success {
+  border-bottom: 10px solid var(--accent-blue);
+}
+.toast-capper.bg-success {
+  background-color: var(--accent-blue) !important;
+}
+
+/* Error */
+.error-toast {
+  border-color: var(--accent-pink);
+}
+.arrow-error {
+  border-bottom: 10px solid var(--accent-pink);
+}
+.toast-capper.bg-danger {
+  background-color: var(--accent-pink) !important;
+}
+
+/* Info */
+.info-toast {
+  border-color: var(--accent-blue);
+}
+.arrow-info {
+  border-bottom: 10px solid var(--accent-blue);
+}
+.toast-capper.bg-info {
+  background-color: var(--accent-blue) !important;
+}
+
+/* Warning */
+.warning-toast {
+  border-color: #f9c46b;
+}
+.arrow-warning {
+  border-bottom: 10px solid #f9c46b;
+}
+.toast-capper.bg-warning {
+  background-color: #f9c46b !important;
+}
+
+.custom-toast {
+  width: 320px;
+  border-radius: 10px;
+  background-color: white;
+}
+
+.success-toast {
+  border-left: 5px solid var(--accent-blue);
+}
+
+.toast-header strong {
+  font-family: 'DM Serif Display', serif;
+}
+
+.message-container {
+  position: fixed;
+  top: 7rem;        
+  right: 1rem;      
+  z-index: 3000;    
+}
+
 /* Media queries */
 @media (max-width: 768px) {
   .h1-block {
