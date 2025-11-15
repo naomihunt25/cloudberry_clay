@@ -2,11 +2,19 @@
 {% load static %}
 
 {% block content %}
- <div class="container">
-        <div class="row">
-            <div class="col">
-                {{ products }}
-            </div>
+<div class="overlay"></div>
+
+<div class="container-fluid mt-5 pt-4">
+    <!-- Page Heading -->
+    <div class="row">
+        <div class="col text-center">
+            {% if current_category_display_name %}
+                <h2 class="logo-font mb-2 text-accent-blue">
+                    {{ current_category_display_name }}
+                </h2>
+            {% else %}
+                <h2 class="logo-font mb-2 text-accent-blue">All Products</h2>
+            {% endif %}
+            <hr class="w-50 mx-auto" style="border-color: var(--accent-pink);">
         </div>
     </div>
-{% endblock %}
