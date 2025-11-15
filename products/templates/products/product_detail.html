@@ -38,6 +38,53 @@
                 {% endif %}
 
                 <p class="mb-4">{{ product.description }}</p>
+             
+                <!-- Add to bag -->
+                <form method="POST" action="{% url 'add_to_bag' product.id %}">
+                    {% csrf_token %}
+                    <div class="form-group mb-3">
+                        <label for="id_qty_{{ product.id }}" class="fw-bold">Quantity:</label>
+                        <div class="input-group justify-content-center w-50 mx-auto">
+                            <button type="button" 
+                                    class="btn btn-outline-secondary rounded-start decrement-qty" 
+                                    data-item_id="{{ product.id }}" 
+                                    id="decrement-qty_{{ product.id }}"
+                                    aria-label="Decrease quantity">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                            <input type="number" 
+                                   name="quantity" 
+                                   value="1" 
+                                   min="1" 
+                                   max="99" 
+                                   class="form-control text-center qty_input" 
+                                   data-item_id="{{ product.id }}" 
+                                   id="id_qty_{{ product.id }}"
+                                   style="max-width: 80px;">
+                            <button type="button" 
+                                    class="btn btn-outline-secondary rounded-end increment-qty" 
+                                    data-item_id="{{ product.id }}" 
+                                    id="increment-qty_{{ product.id }}"
+                                    aria-label="Increase quantity">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="mt-4 d-flex justify-content-center gap-3">
+                        <a href="{% url 'products' %}" 
+                           class="btn rounded-pill px-4 py-2 text-white"
+                           style="background-color: var(--accent-pink); border: none;">
+                            <i class="fas fa-chevron-left"></i> Keep Shopping
+                        </a>
+                        <input type="submit" 
+                               class="btn rounded-pill px-4 py-2 text-white"
+                               style="background-color: var(--accent-blue); border: none;" 
+                               value="Add to Bag">
+                    </div>
+
+                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                </form>
             </div>
         </div>
     </div>
