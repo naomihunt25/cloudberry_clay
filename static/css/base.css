@@ -144,12 +144,38 @@ html, body {
   color: #555;
 }
 
-@media (max-width: 768px) {
-  .sort-container .btn,
-  .filter-container .btn {
-    font-size: 0.9rem;
-    padding: 0.3rem 0.75rem;
-  }
+/* Back to Top Button */
+#btt-button {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 45px;
+  height: 45px;
+  background: var(--accent-blue);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s ease-in-out;
+}
+
+/* Hover effect */
+#btt-button:hover {
+  background: var(--accent-pink);
+}
+
+/* Shown state */
+#btt-button.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+#btt-button i {
+  font-size: 1.1rem;
 }
 
 /* Media queries */
@@ -157,6 +183,12 @@ html, body {
   .h1-block {
     font-size: 2rem;
     padding: 0.75rem 1.5rem;
+  }
+
+  .sort-container .btn,
+  .filter-container .btn {
+    font-size: 0.9rem;
+    padding: 0.3rem 0.75rem;
   }
 }
 

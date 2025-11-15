@@ -93,6 +93,7 @@
             </div>
             {% endfor %}
         {% else %}
+
             <!-- No Products Message -->
             <div class="col-12 text-center py-5">
                 <h3 class="text-accent-pink">No products found</h3>
@@ -102,4 +103,28 @@
         {% endif %}
     </div>
 </div>
+ <div id="btt-button" class="btt-button shadow-sm">
+    <a class="btt-link d-flex align-items-center justify-content-center">
+        <i class="fa-solid fa-arrow-up"></i>
+    </a>
+</div>
+{% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }}
+    <script>
+        // Click to scroll to top
+        $('.btt-link').click(function () {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+    // Show when scrolling
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 300) {
+            $('#btt-button').addClass('show');
+        } else {
+            $('#btt-button').removeClass('show');
+        }
+    });
+</script>
 {% endblock %}
