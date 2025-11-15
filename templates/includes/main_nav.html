@@ -58,7 +58,7 @@
 
       <!-- Shopping Bag -->
       <li class="nav-item">
-        <a class="nav-link {% if grand_total %}text-accent-blue font-weight-bold{% endif %}" href="">
+        <a class="nav-link {% if grand_total %}text-accent-blue font-weight-bold{% endif %}" href="{% url 'view_bag' %}">
           <i class="fas fa-shopping-bag fa-lg"></i>
           <span class="ml-1">
             {% if grand_total %} £{{ grand_total|floatformat:2 }} {% else %} £0.00 {% endif %}
