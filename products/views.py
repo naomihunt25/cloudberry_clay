@@ -4,10 +4,6 @@ from django.db.models import Q
 from .models import Product, Category
 
 def all_products(request):
-    """
-    Display all products with optional sorting, filtering by category,
-    and search functionality.
-    """
     products = Product.objects.all()
     query = None
     selected_categories = None
@@ -34,7 +30,7 @@ def all_products(request):
     elif 'q' in request.GET and not search_term:
         # Empty search query
         messages.error(request, "You didn't enter any search terms.")
-        return redirect(reverse('products:products'))
+        return redirect(reverse('products'))
 
     # Sorting
     if sort in ['name', 'price']:

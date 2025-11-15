@@ -29,9 +29,9 @@
           Products
         </a>
         <div class="dropdown-menu" aria-labelledby="mobileproductsDropdown">
-          <a class="dropdown-item" href="">Jewellery Holders</a>
-          <a class="dropdown-item" href="">Homeware</a>
-          <a class="dropdown-item" href="">Dining</a>
+          <a class="dropdown-item" href="{% url 'products' %}?category=jewellery_holders">Jewellery Holders</a>
+          <a class="dropdown-item" href="{% url 'products' %}?category=homeware">Homeware</a>
+          <a class="dropdown-item" href="{% url 'products' %}?category=dining">Dining</a>
           <a href="{% url 'products' %}" class="dropdown-item">All Products</a>
         </div>
       </li>
