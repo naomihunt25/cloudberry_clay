@@ -11,6 +11,17 @@ def bag_contents(request):
     product_count = 0
     bag = request.session.get('bag', {})
 
+    for item_id, quantity in bag.items():
+        product = get_object_or_404(Product, pk=item_id)
+        item_total = quantity * product.price
+        total += item_total
+        product_count += quantity
+        bag_items.append({
+            'item_id': item_id,
+            'quantity': quantity,
+            'product': product,
+            'subtotal': item_total,
+        })
 
     FREE_DELIVERY_THRESHOLD = Decimal(settings.FREE_DELIVERY_THRESHOLD)
     STANDARD_DELIVERY_PERCENTAGE = Decimal(settings.STANDARD_DELIVERY_PERCENTAGE)

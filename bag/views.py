@@ -38,7 +38,7 @@ def update_bag(request, item_id):
         messages.warning(request, f"Removed '{product.name}' from your bag.")
 
     request.session['bag'] = bag
-    return redirect(reverse('bag:view_bag'))
+    return redirect(reverse('view_bag'))
 
 
 def remove_from_bag(request, item_id):
@@ -52,4 +52,4 @@ def remove_from_bag(request, item_id):
     else:
         messages.error(request, f"'{product.name}' was not found in your bag.")
 
-    return redirect(reverse('bag:view_bag'))
+    return redirect(reverse('view_bag'))
