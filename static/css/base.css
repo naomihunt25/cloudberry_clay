@@ -188,6 +188,40 @@ input[type="number"] {
     -moz-appearance: textfield;
 }
 
+/* Bag Page */
+.table thead {
+  background-color: var(--accent-blue);
+  color: white;
+}
+
+.table td,
+.table th {
+  vertical-align: middle !important;
+}
+
+/* Bag Buttons */
+.btn-outline-primary {
+  border-color: var(--accent-blue);
+  color: var(--accent-blue);
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--accent-blue);
+  color: white;
+}
+
+.btn-outline-danger {
+  border-color: var(--accent-pink);
+  color: var(--accent-pink);
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-outline-danger:hover {
+  background-color: var(--accent-pink);
+  color: white;
+}
+
 /* Media queries */
 @media (max-width: 768px) {
   .h1-block {
@@ -199,6 +233,15 @@ input[type="number"] {
   .filter-container .btn {
     font-size: 0.9rem;
     padding: 0.3rem 0.75rem;
+  }
+
+   .table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  table.table {
+    min-width: 600px;
   }
 }
 
