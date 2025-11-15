@@ -15,14 +15,12 @@
       <!-- Products Dropdown -->
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="productsDropdown"
-           role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Products
-        </a>
+           role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Products</a>
         <div class="dropdown-menu" aria-labelledby="productsDropdown">
           <a class="dropdown-item" href="">Jewellery Holders</a>
           <a class="dropdown-item" href="">Homeware</a>
           <a class="dropdown-item" href="">Dining</a>
-          <a href="" class="dropdown-item">All Products</a>
+          <a href="{% url 'products' %}" class="dropdown-item">All Products</a>
         </div>
       </li>
 

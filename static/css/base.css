@@ -117,6 +117,41 @@ html, body {
   transform: translateY(-2px);
 }
 
+/*  Sort buttons */
+.sort-container .btn,
+.filter-container .btn {
+  border: 2px solid var(--accent-blue);
+  color: var(--accent-blue);
+  background: white;
+  border-radius: 30px;
+  margin: 0.3rem;
+  font-family: 'Roboto Mono', monospace;
+  transition: all 0.25s ease;
+  padding: 0.4rem 0.9rem;
+}
+
+.sort-container .btn:hover,
+.filter-container .btn:hover,
+.sort-container .btn.active,
+.filter-container .btn.active {
+  background-color: var(--accent-blue);
+  color: white;
+}
+
+.filter-container strong,
+.sort-container strong {
+  font-family: 'Roboto Mono', monospace;
+  color: #555;
+}
+
+@media (max-width: 768px) {
+  .sort-container .btn,
+  .filter-container .btn {
+    font-size: 0.9rem;
+    padding: 0.3rem 0.75rem;
+  }
+}
+
 /* Media queries */
 @media (max-width: 768px) {
   .h1-block {
