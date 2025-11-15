@@ -1,0 +1,135 @@
+:root {
+  --accent-pink: #ff95de;
+  --accent-blue: #7aa4ff;
+}
+
+/* Base */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto Mono', monospace;
+  background-color: white;
+  color: #333;
+}
+
+/*  Logo  */
+.logo-font,
+.hero-text-blocks .text-block {
+  font-family: 'DM Serif Display', serif;
+}
+
+.logo-img {
+  height: 70px;
+  width: auto;
+}
+
+/* Navbar */
+.navbar-nav .nav-link {
+  color: #333 !important;
+  margin: 0 10px;
+  transition: all 0.2s ease-in-out;
+}
+
+.navbar-nav .nav-link:hover {
+  color: var(--accent-blue) !important;
+}
+
+.navbar .form-inline .form-control {
+  border: 2px solid var(--accent-blue);
+  border-right: none;
+  border-radius: 50px 0 0 50px;
+  font-family: 'Roboto Mono', monospace;
+  padding: 0.375rem 0.75rem;
+}
+
+.navbar .form-inline .btn {
+  background-color: var(--accent-blue);
+  color: white;
+  border: 2px solid var(--accent-blue);
+  border-radius: 0 50px 50px 0;
+  transition: background-color 0.3s, color 0.3s;
+  padding: 0.375rem 0.75rem;
+}
+
+.navbar .form-inline .btn:hover {
+  background-color: var(--accent-pink);
+  border-color: var(--accent-pink);
+  color: white;
+}
+
+/* Hero Section */
+.hero-section {
+  position: relative;
+  width: 100%;
+  min-height: 85vh;
+  background: url('/media/cloudberry_clay_hero.png') center center / cover no-repeat;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 235, 247, 0.315);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-text-blocks {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.text-block {
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  text-align: center;
+  color: white;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  max-width: 90%;
+}
+
+.h1-block {
+  background-color: rgba(122, 164, 255, 0.85);
+  font-size: 2.5rem;
+}
+
+/* Buttons */
+.shop-now-button {
+  background: var(--accent-blue);
+  border: none;
+  color: white;
+  padding: 0.75rem 2rem;
+  border-radius: 2rem;
+  transition: all 0.3s ease-in-out;
+  font-family: inherit;
+}
+
+.shop-now-button:hover {
+  background: var(--accent-pink);
+  transform: translateY(-2px);
+}
+
+/* Media queries */
+@media (max-width: 768px) {
+  .h1-block {
+    font-size: 2rem;
+    padding: 0.75rem 1.5rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container { max-width: 85%; }
+}
+
+@media (min-width: 992px) {
+  .content-container { padding-top: 10rem; }
+  .product-container { padding-top: 100px; }
+}
