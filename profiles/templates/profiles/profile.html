@@ -24,9 +24,8 @@
                 {% csrf_token %}
                 {{ form|crispy }}
                 <div class="text-right mt-4">
-                    <button class="btn rounded-pill px-4 py-2 text-white"
-                            style="background-color: var(--accent-blue); border: none;">
-                        <i class="fas fa-save mr-2"></i> Update Information
+                    <button class="btn btn-outline-primary">
+                            <i class="fas fa-save mr-2"></i> Update Information
                     </button>
                 </div>
             </form>
@@ -37,7 +36,7 @@
             <h4 class="text-accent-pink mb-3">Order History</h4>
             <div class="table-responsive shadow-sm rounded bg-white p-3">
                 <table class="table table-sm text-center mb-0">
-                    <thead class="bg-light">
+                    <thead style="background-color: var(--accent-blue); color: white;">
                         <tr>
                             <th>Order Number</th>
                             <th>Date</th>

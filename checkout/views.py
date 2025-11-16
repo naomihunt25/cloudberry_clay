@@ -51,6 +51,8 @@ def checkout(request):
             pid = request.POST.get('client_secret').split('_secret')[0]
             order.stripe_pid = pid
             order.original_bag = json.dumps(bag)
+            if request.user.is_authenticated:
+                    order.user = request.user
             order.save()
             for item_id, item_data in bag.items():
                 try:
