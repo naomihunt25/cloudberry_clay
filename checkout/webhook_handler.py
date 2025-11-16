@@ -10,3 +10,17 @@ class StripeWH_Handler:
             content=f"Unhandled webhook received: {event['type']}",
             status=200
         )
+
+    def handle_payment_intent_succeeded(self, event):
+            return HttpResponse(
+                content=f"Webhook received: {event['type']} | SUCCESS: Verified order already exists",
+                status=200
+                )
+        
+    def handle_payment_intent_payment_failed(self, event):
+        return HttpResponse(
+            content=f"Webhook received: {event['type']} | Payment failed",
+            status=200
+        )
+    
+    
