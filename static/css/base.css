@@ -13,6 +13,16 @@ html, body {
   color: #333;
 }
 
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.main-content {
+    flex: 1;
+}
+
 /*  Logo  */
 .logo-font,
 .hero-text-blocks .text-block {
@@ -431,6 +441,10 @@ input[type="number"] {
 
 .footer-section .small {
   font-size: 0.85rem;
+}
+
+.content-container {
+    flex-grow: 1;          
 }
 
 /* Media queries */

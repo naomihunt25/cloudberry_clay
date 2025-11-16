@@ -16,3 +16,25 @@ text-accent-blue {
     transform: translateY(-1px);
     transition: all 0.2s ease-in-out;
 }
+
+.btn-outline-primary {
+  border-color: var(--accent-blue);
+  color: var(--accent-blue);
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--accent-blue);
+  color: white;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-outline-danger {
+  border-color: var(--accent-pink);
+  color: var(--accent-pink);
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-outline-danger:hover {
+  background-color: var(--accent-pink);
+  color: white;
+}
