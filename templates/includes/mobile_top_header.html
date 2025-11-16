@@ -46,9 +46,9 @@
       <div class="dropdown-menu p-3 w-100 shadow-sm" aria-labelledby="mobile-search">
          <form class="form" method="GET" action="{% url 'products' %}">
           <div class="input-group">
-           <input class="form-control" type="search" name="q" placeholder="Search products..." value="">
+           <input class="form-control rounded-pill" type="search" name="q" placeholder="Search products..." value="">
         <div class="input-group-append">
-          <button class="btn btn-accent-blue" type="submit">
+          <button class="btn btn-outline-primary rounded-pill" type="submit">
             <i class="fas fa-search"></i>
           </button>
         </div>
@@ -67,7 +67,7 @@
           <div class="dropdown-menu" aria-labelledby="mobileUserDropdown">
             {% if request.user.is_authenticated %}
               {% if request.user.is_superuser %}
-                <a href="" class="dropdown-item">Product Management</a>
+                <a href="{% url 'add_product' %}" class="dropdown-item">Product Management</a>
             {% endif %}
             <a href="" class="dropdown-item">My Profile</a>
               <a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a>

@@ -12,8 +12,15 @@ def bag_contents(request):
     bag = request.session.get('bag', {})
 
     for item_id, quantity in bag.items():
-        product = get_object_or_404(Product, pk=item_id)
-        item_total = quantity * product.price
+        try:
+            product = Product.objects.get(pk=item_id)
+        except (Product.DoesNotExist, ValueError, TypeError):
+            continue
+        try:
+            item_total = quantity * product.price
+        except:
+            item_total = Decimal('0.00')
+
         total += item_total
         product_count += quantity
         bag_items.append({

@@ -10,8 +10,8 @@
 <form method="post" action="{% url 'account_logout' %}">
   {% csrf_token %}
   <div class="d-flex justify-content-between">
-    <a href="/" class="btn btn-outline-danger">{% trans "Cancel" %}</a>
-    <button type="submit" class="btn btn-outline-primary">{% trans "Sign Out" %}</button>
+    <a href="/" class="btn btn-outline-danger rounded-pill">{% trans "Cancel" %}</a>
+    <button type="submit" class="btn btn-outline-primary rounded-pill">{% trans "Sign Out" %}</button>
   </div>
 </form>
 {% endblock %}

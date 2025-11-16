@@ -24,7 +24,7 @@
                 {% csrf_token %}
                 {{ form|crispy }}
                 <div class="text-right mt-4">
-                    <button class="btn btn-outline-primary">
+                    <button class="btn btn-outline-primary rounded-pill">
                             <i class="fas fa-save mr-2"></i> Update Information
                     </button>
                 </div>
@@ -57,7 +57,7 @@
                             <td>£{{ order.grand_total|floatformat:2 }}</td>
                             <td>
                                 <a href="{% url 'checkout_success' order.order_number %}"
-                                   class="btn btn-outline-secondary btn-sm rounded-pill px-3">
+                                   class="btn btn-outline-primary rounded-pill">
                                     View
                                 </a>
                             </td>
