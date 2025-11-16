@@ -38,6 +38,29 @@
   font-size: 1.5rem;
 }
 
+#id_country {
+    height: auto !important;
+    min-height: 48px !important;
+    line-height: 1.4 !important;
+    padding-top: 12px !important;
+    padding-bottom: 12px !important;
+    display: flex;
+    align-items: center;
+}
+
+#div_id_country > label {
+    display: none !important;
+}
+
+select#id_country:invalid {
+    color: #aab7c4;     
+    font-style: italic;
+}
+
+select#id_country option {
+    color: #333;
+}
+
 /* Card input */
 #payment-form .form-control,
 #card-element {
