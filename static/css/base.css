@@ -117,6 +117,35 @@ html, body {
   transform: translateY(-2px);
 }
 
+.action-btn {
+    display: inline-block;
+    color: white !important;
+    border: none;
+    border-radius: 50px;
+    padding: 0.7rem 1.4rem;
+    font-family: 'Roboto Mono', monospace;
+    text-decoration: none;
+    transition: 0.2s ease;
+}
+
+.action-btn--pink {
+    background-color: var(--accent-pink);
+}
+
+.action-btn--pink:hover {
+    background-color: var(--accent-blue);
+    transform: translateY(-1px);
+}
+
+.action-btn--blue {
+    background-color: var(--accent-blue);
+}
+
+.action-btn--blue:hover {
+    background-color: var(--accent-pink);
+    transform: translateY(-1px);
+}
+
 /* Categories  */
 .category-card img {
   border-top-left-radius: 0.5rem;
@@ -248,12 +277,12 @@ input[type="number"] {
 .btn-outline-primary {
   border-color: var(--accent-blue);
   color: var(--accent-blue);
-  transition: all 0.3s ease-in-out;
 }
 
 .btn-outline-primary:hover {
   background-color: var(--accent-blue);
   color: white;
+  transition: all 0.3s ease-in-out;
 }
 
 .btn-outline-danger {

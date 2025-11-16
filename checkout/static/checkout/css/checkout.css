@@ -35,7 +35,7 @@
   right: 0.5rem;
   font-family: 'DM Serif Display', serif;
   color: var(--accent-blue);
-  font-size: 0.9rem;
+  font-size: 1.5rem;
 }
 
 /* Card input */
@@ -68,6 +68,24 @@ button[type="submit"] {
 button[type="submit"]:hover {
   background-color: var(--accent-pink);
   transform: translateY(-1px);
+}
+
+.checkout-back-btn {
+    display: inline-block;
+    background-color: var(--accent-pink);    
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 0.7rem 1.4rem;
+    font-family: 'Roboto Mono', monospace;
+    text-decoration: none;
+    transition: 0.2s ease;
+}
+
+.checkout-back-btn:hover {
+    background-color: var(--accent-blue);    
+    transform: translateY(-1px);
+    color: white;
 }
 
 /* Loading Overlay */
