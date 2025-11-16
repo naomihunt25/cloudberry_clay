@@ -1,1 +1,1 @@
-web: gunicorn cloudberryclay.wsgi:application
+web: gunicorn cloudberry_clay.wsgi:application
