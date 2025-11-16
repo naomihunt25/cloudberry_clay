@@ -36,7 +36,7 @@
                     </p>
                 {% endif %}
 
-                {% if product.rating %}
+                {% if product.rating is not None %}
                     <p class="small text-muted mb-3">
                         <i class="fas fa-star text-warning"></i> {{ product.rating }} / 5
                     </p>
@@ -44,7 +44,14 @@
                     <p class="small text-muted mb-3">No rating yet</p>
                 {% endif %}
 
-                <p class="mb-4">{{ product.description }}</p>
+                {% if request.user.is_superuser %}
+                    <small class="ml-3">
+                        <a href="{% url 'edit_product' product.id %}" class="btn btn-outline-primary rounded-pill">Edit</a>
+                        <a href="{% url 'delete_product' product.id %}" class="btn btn-outline-danger rounded-pill">Delete</a>
+                    </small>
+                {% endif %}
+
+                <p class="mb-4 mt-3">{{ product.description }}</p>
              
                 <!-- Add to bag -->
                 <form method="POST" action="{% url 'add_to_bag' product.id %}">
