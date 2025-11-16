@@ -1,0 +1,1 @@
+Thank You for Your Purchase - Your Cloudberry Clay Order #{{ order.order_number }}

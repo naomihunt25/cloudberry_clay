@@ -1,0 +1,30 @@
+Hi {{ order.full_name }},
+
+Thank you so much for your order! We’re really happy to let you know that we’ve received it and everything is now being prepared with care.
+
+YOUR ORDER DETAILS
+Order Number: {{ order.order_number }}
+Order Date: {{ order.date }}
+Items Total: £{{ order.order_total }}
+Delivery: £{{ order.delivery_cost }}
+Grand Total: £{{ order.grand_total }}
+
+SHIPPING ADDRESS
+{{ order.street_address1 }}
+{% if order.street_address2 %}{{ order.street_address2 }}{% endif %}
+{{ order.town_or_city }}
+{% if order.county %}{{ order.county }}{% endif %}
+{{ order.postcode }}
+{{ order.country }}
+
+Phone number we’ll use if your parcel needs extra guidance:
+{{ order.phone_number }}
+
+You'll receive another email from us as soon as your items are on their way.
+
+If you have any questions, just reply to this email — we're always here to help.
+
+Thank you for supporting Cloudberry Clay. It truly means a lot.
+
+Dreamy wishes,
+Cloudberry Clay
