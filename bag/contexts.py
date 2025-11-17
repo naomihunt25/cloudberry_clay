@@ -1,11 +1,9 @@
 from decimal import Decimal
 from django.conf import settings
-from django.shortcuts import get_object_or_404
 from products.models import Product
 
 
 def bag_contents(request):
-   
     bag_items = []
     total = Decimal('0.00')
     product_count = 0
@@ -18,7 +16,7 @@ def bag_contents(request):
             continue
         try:
             item_total = quantity * product.price
-        except:
+        except Exception:
             item_total = Decimal('0.00')
 
         total += item_total

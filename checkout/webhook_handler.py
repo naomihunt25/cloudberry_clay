@@ -121,7 +121,7 @@ class StripeWH_Handler:
                         quantity=item_data,
                     )
 
-            # Save profile info 
+            # Save profile info
             if profile and save_info:
                 profile.default_phone_number = shipping_details.phone
                 profile.default_country = shipping_details.address.country
