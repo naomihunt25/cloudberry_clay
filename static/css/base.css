@@ -79,7 +79,7 @@ body {
   position: relative;
   width: 100%;
   min-height: 85vh;
-  background: url('/media/cloudberry_clay_hero.png') center center / cover no-repeat;
+  background: url("{% static 'images/cloudberry_clay_hero.png' %}") center center / cover no-repeat;
 }
 
 .hero-overlay {
