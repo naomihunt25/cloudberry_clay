@@ -5,14 +5,21 @@
 
 {% block content %}
 <!-- Hero Section -->
-<section class="hero-section d-flex align-items-center justify-content-center text-center">
+<section class="hero-section d-flex align-items-center justify-content-center text-center"
+         style="background-image: url({% static 'images/cloudberry_clay_hero.png' %});
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;">
+  
   <div class="hero-overlay"></div>
+  
   <div class="hero-content">
     <div class="hero-text-blocks">
       <div class="text-block h1-block">Handcrafted with Love</div>
       <a href="{% url 'products' %}" class="btn btn-primary shop-now-button mt-3">Shop Now</a>
     </div>
   </div>
+
 </section>
 
 <!-- Intro / About section -->
