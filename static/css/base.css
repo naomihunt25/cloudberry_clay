@@ -467,6 +467,12 @@ input[type="number"] {
 }
 
 /* Media queries */
+@media (max-width: 576px) {
+    .quantity-input .qty_input {
+        max-width: 70px !important;   
+    }
+}
+
 @media (max-width: 768px) {
   .h1-block {
     font-size: 2rem;
@@ -487,6 +493,10 @@ input[type="number"] {
   table.table {
     min-width: 600px;
   }
+
+  .quantity-input .qty_input {
+        max-width: 60px !important;
+    }
 }
 
 @media (min-width: 1200px) {
