@@ -26,7 +26,7 @@ class Product(models.Model):
     sku = models.CharField(max_length=100, null=True, blank=True)
     rating = models.DecimalField(max_digits=3, decimal_places=2, null=True, blank=True)
     image_url = models.URLField(max_length=500, null=True, blank=True)
-    image = models.ImageField(upload_to='', null=True, blank=True)
+    image = models.ImageField(upload_to='media/', null=True, blank=True)
 
 
     def __str__(self):
