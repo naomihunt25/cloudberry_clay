@@ -28,7 +28,7 @@
            role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Products
         </a>
-        <div class="dropdown-menu" aria-labelledby="mobileproductsDropdown">
+        <div class="dropdown-menu" aria-labelledby="mobileProductsDropdown">
           <a class="dropdown-item" href="{% url 'products' %}?category=jewellery_holders">Jewellery Holders</a>
           <a class="dropdown-item" href="{% url 'products' %}?category=homeware">Homeware</a>
           <a class="dropdown-item" href="{% url 'products' %}?category=dining">Dining</a>
@@ -39,14 +39,15 @@
       <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About</a></li>
 
     <!-- Search -->
-      <div class="dropdown">
-        <a class="nav-link p-0 text-dark" href="#" id="mobile-search" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-search fa-lg"></i>
-        </a>
-      <div class="dropdown-menu p-3 w-100 shadow-sm" aria-labelledby="mobile-search">
-         <form class="form" method="GET" action="{% url 'products' %}">
-          <div class="input-group">
-           <input class="form-control rounded-pill" type="search" name="q" placeholder="Search products..." value="">
+<li class="nav-item dropdown mt-2">
+  <a class="nav-link p-0 text-dark" href="#" id="mobile-search" data-toggle="dropdown"
+     aria-haspopup="true" aria-expanded="false">
+    <i class="fas fa-search fa-lg"></i>
+  </a>
+  <div class="dropdown-menu p-3 w-100 shadow-sm" aria-labelledby="mobile-search">
+    <form class="form" method="GET" action="{% url 'products' %}">
+      <div class="input-group">
+        <input class="form-control rounded-pill" type="search" name="q" placeholder="Search products..." value="">
         <div class="input-group-append">
           <button class="btn btn-outline-primary rounded-pill" type="submit">
             <i class="fas fa-search"></i>
@@ -55,7 +56,7 @@
       </div>
     </form>
   </div>
-</div>
+</li>
 
       <!-- User options -->
       <li class="nav-item mt-2">

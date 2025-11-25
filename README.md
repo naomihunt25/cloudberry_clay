@@ -7,6 +7,10 @@
 2. [User Experience (UX)](#user-experience-ux)
 3. [Design Choices](#design-choices)
 4. [Wireframes](#wireframes)
+5. [Entity Relationship](#entity-relationship)
+6. [Features](#features)
+7. [Tools and Technologies](#tools-and-technologies)
+8. [Testing](#testing)
 
 
 ## Project Description
@@ -455,4 +459,67 @@ Example:
 These enhancements will continue to improve user engagement and overall shopping experience.
 
 [Return to Table of Contents](#table-of-contents)
+
+## Tools and Technologies
+
+Cloudberry Clay was built using a range of modern technologies to deliver a secure, responsive, and user-friendly e-commerce experience. Below are the core tools, frameworks, and services used throughout development.
+
+### Languages
+
+- HTML5 - Structure and semantic layout of pages.  
+- CSS3 - Styling, branding, layout, and responsive design.  
+- JavaScript - Small interactive elements and Stripe integration.  
+- Python - Backend logic, models, and business functionality via Django.
+
+### Frameworks and Libraries
+
+- Django - Full-stack web framework powering routing, models, admin, and authentication.  
+- Django Allauth - User registration, login, logout, and email authentication.  
+- Stripe - Secure card payments using PaymentIntent and webhooks.  
+- Bootstrap 5 - Provides responsive layout components and grid system.  
+- Crispy Forms - Enhances Django form rendering to improve usability.
+
+### Database and Storage
+
+- PostgreSQL - Relational database used in production (via Heroku).  
+- SQLite3 - Default database used during local development.  
+- AWS S3 (Amazon Web Services) - Storage for static and media files in production.  
+- Heroku Postgres - Hosted database instance connected to the deployed app.
+
+### Development Tools
+
+- Git - Version control for tracking and managing code changes.  
+- GitHub - Remote repository hosting and project board for user stories.  
+- VS Code - Cloud-based or local development environments.  
+- Chrome DevTools - Debugging layout issues, testing responsiveness, and inspecting elements.
+
+### Design and Documentation Tools
+
+- Balsamiq - Created wireframes for planning page layouts.  
+- Canva - Designed mockups, hero image, product images and diagram assets.  
+- Favicon.io - Generated the site’s favicon.
+- Google Fonts - Fonts used from Google Fonts directory.
+
+### Deployment and Hosting Tools
+
+- Heroku - Hosting platform for the live web application.  
+- Gunicorn - WSGI HTTP server used in production.  
+- Whitenoise - Serving static files efficiently on Heroku.  
+- dj-database-url - Securely configures database URLs via environment variables.
+
+### Python Packages 
+- asgiref  
+- dj-database-url
+- gunicorn 
+- Pillow - Required for handling product images.  
+- psycopg2/psycopg2-binary - PostgreSQL adapter for Python.  
+- stripe - Payment processing.  
+- whitenoise - Static file compression and caching.
+
+Full list of installed packages can be found in `requirements.txt`.
+
+[Return to Table of Contents](#table-of-contents)
+
+## Testing
+Please refer to the ![TESTING.md](TESTING.md) file, for all testing documentation.
 
