@@ -4,7 +4,7 @@
 
 # Table of Contents
 1. [Project description](#project-description)
-2. [User Experience (UX)](#user-experience)
+2. [User Experience (UX)](#user-experience-ux)
 3. [Design Choices](#design-choices)
 4. [Wireframes](#wireframes)
 
@@ -32,7 +32,7 @@ The project is deployed on Heroku with a PostgreSQL database and uses Django to 
 Cloudberry Clay has been designed as a warm, playful and inviting online shopping experience for users who appreciate handmade ceramic art. 
 
 The UX process for this project follows the five planes of user experience:  
-Strategy → Scope → Structure → Skeleton → Surface, ensuring decisions made during development were supported by clear user needs and business goals.
+Strategy -> Scope -> Structure -> Skeleton -> Surface, ensuring decisions made during development were supported by clear user needs and business goals.
 
 ### Strategy Plane
 
@@ -277,3 +277,182 @@ These forms allow users to create an account or access existing profiles.
 ![Signup wireframe](documentation/wireframes/signup-wireframe.png)
 
 [Return to Table of Contents](#table-of-contents)
+
+## Entity Relationship
+
+During the planning phase, an Entity Relationship Diagram (ERD) was created to map out the database structure used in Cloudberry Clay. The ERD helps visualise how products, orders, users, and profiles relate to each other in the backend.
+
+Cloudberry Clay uses a relational PostgreSQL database, managed through Django’s ORM. The structure consists of five core models:
+
+### **Category**
+- `name`  
+- `friendly_name`  
+
+Each product belongs to one category.
+
+**Relationships:**  
+- One category -> Many products
+
+### **Product**
+- `category` (ForeignKey to Category)  
+- `name`  
+- `description`  
+- `price`  
+- `sku`  
+- `image` / `image_url`  
+- `rating`  
+
+Products represent individual clay items that can be viewed, added to the bag, and purchased.
+
+**Relationships:**  
+- One product -> Many order line items
+
+### **UserProfile**
+- Linked to Django’s built-in User model 
+- Stores default delivery information  
+- Stores saved details for returning shoppers  
+
+**Relationships:**  
+- One UserProfile -> Many orders
+
+### **Order**
+- `order_number`  
+- `user_profile` 
+- `full_name`, `email`, `phone_number`  
+- `address` fields  
+- `order_total`, `delivery_cost`, `grand_total`  
+- `stripe_pid`, `original_bag`  
+
+Orders are created during checkout and store all information required for order history and admin management.
+
+**Relationships:**  
+- One order -> many order line items  
+- Many orders -> One UserProfile
+
+### **OrderLineItem**
+- `order` (ForeignKey to Order)  
+- `product` (ForeignKey to Product)  
+- `quantity`  
+- `lineitem_total`  
+
+This model allows orders to contain multiple products in varying quantities.
+
+**Relationships:**  
+- Many OrderLineItems -> One order  
+- Many OrderLineItems -> One product
+
+## ERD Diagram
+
+Below is a diagram illustrating all relationships between the database models:
+
+![Entity relationship diagram](documentation/cloudberry-erd.png)
+
+[Return to Table of Contents](#table-of-contents)
+
+## Features
+
+Cloudberry Clay includes a range of features that allow users to browse products, manage their shopping bag, complete secure purchases, and maintain personalised profiles. The site also provides administrative tools for managing products and orders through a secure interface.
+
+### Home Page
+
+- A clean hero section introducing the brand.  
+- Clear navigation that directs users to browse all products or sign into their account.  
+- Soft pastel design that reflects the artistic, handcrafted nature of the brand.
+
+![Cloudberry home page](documentation/features/cloudberry-home.png)
+
+### Products Page
+
+- Displays all products in a responsive grid layout.  
+- Each product card includes an image, name, price, and link to the detail page.  
+- Category filtering and sorting options are available.  
+- Search bar allows users to find items quickly.
+
+![Cloudberry products page](documentation/features/cloudberry-products.png)
+
+### Product Detail Page
+
+- High-quality product image displayed prominently.  
+- Accessible product information including name, description, price, rating and category.  
+- Quantity selector for adding items to the bag.  
+- Subtle design elements and colour accents to match brand identity.
+
+![Cloudberry product detail page](documentation/features/cloudberry-product-detail.png)
+
+### Shopping Bag
+
+- Displays selected products, item quantities, prices, and subtotals.  
+- Users can update quantities or remove items from their bag.  
+- Clear breakdown of delivery cost and free-delivery thresholds.  
+- Toast messages provide real-time feedback for actions.
+
+![Cloudberry bag page](documentation/features/cloudberry-bag.png)
+
+### Checkout Page
+
+- Secure checkout using Stripe’s PaymentIntent.  
+- Form collects delivery details and displays an order summary.  
+- Inline card payment field using Stripe Elements.  
+- Automatic calculation of delivery cost and totals.  
+- Errors are clearly handled with messages.
+
+![Cloudberry checkout page](documentation/features/cloudberry-checkout.png)
+
+### Checkout Success Page
+
+- Displays full order summary and order number.  
+- Confirms successful payment and details stored in user profile (if logged in).  
+
+![Cloudberry checkout success page](documentation/features/cloudberry-checkout-success.png)
+
+### User Account Features
+
+#### Sign up and Sign in
+- Users can create an account, log in, log out, and reset passwords using Django Allauth.  
+- Error handling and feedback messages guide users smoothly.
+
+![Cloudberry sign up page](documentation/features/cloudberry-signup.png)
+![Cloudberry sign in page](documentation/features/cloudberry-signin.png)
+
+#### User Profile
+- Displays saved delivery details.  
+- Users can update their default information for faster future checkouts.  
+- Lists past orders with links to detailed receipts.  
+- Clean, simple layout for easy navigation.
+
+![Cloudberry profile page](documentation/features/cloudberry-profile.png)
+
+### Admin Features (Superuser Only)
+
+- Add new products through a dedicated admin form.  
+- Edit existing products with pre-populated forms.  
+- Delete products with confirmation prompts.  
+- Easy content management without requiring database access.
+
+![Cloudberry checkout success page](documentation/features/cloudberry-admin.png)
+
+### Error Pages
+
+- 400 Page: Displayed when the server cannot process the user’s request.
+- 403 Page: Shown when a user attempts to access a restricted page.
+- 404 Page: Custom design to redirect users if a page doesn’t exist.  
+- 500 Page: Friendly fallback page for server errors.
+
+The error pages maintain brand style and provide helpful navigation options.
+
+Example:  
+![Cloudberry 404 page](documentation/features/cloudberry-404.png)
+
+### Future Features
+
+- Wishlist/favourites system  
+- Product reviews
+- Newsletter signup  
+- Multi-image product gallery  
+- Discount codes and promotional pricing  
+- Recently viewed items  
+
+These enhancements will continue to improve user engagement and overall shopping experience.
+
+[Return to Table of Contents](#table-of-contents)
+
