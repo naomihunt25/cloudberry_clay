@@ -22,4 +22,4 @@ jobs:
       - name: Run flake8
         run: |
           echo "Running flake8..."
-          flake8 --exclude=./venv/,./migrations/ .
+          flake8 --exclude=env.py,*/migrations/*,venv,*.pyc .
