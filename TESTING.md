@@ -219,5 +219,3 @@ The project contains one custom JavaScript file used for Stripe payment integrat
 
 This file was tested using the JSHint online validator. No major issues were returned after resolving one minor missing semicolon. Warnings about undefined variables are expected because these are provided by external libraries and not defined within the script.
 ![Javascript validator](documentation/validation/cloudberry-javascript-validator.png)
-
-[Return to Table of Contents](#table-of-contents)
