@@ -187,7 +187,7 @@ All layouts worked without major issues.
 # 9. Code Validation
 
 ### HTML
-
+Passed W3C Validator
 ### CSS
 
 ### Python
