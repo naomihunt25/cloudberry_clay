@@ -11,7 +11,8 @@
 6. [Features](#features)
 7. [Tools and Technologies](#tools-and-technologies)
 8. [Testing](#testing)
-
+9. [Deployment](#deployment)
+10. [Credits](#credits)
 
 ## Project Description
 
@@ -521,5 +522,213 @@ Full list of installed packages can be found in `requirements.txt`.
 [Return to Table of Contents](#table-of-contents)
 
 ## Testing
-Please refer to the ![TESTING.md](TESTING.md) file, for all testing documentation.
+Please refer to the [TESTING.md](TESTING.md) file, for all testing documentation.
 
+## Deployment
+
+This project is deployed on Heroku, using PostgreSQL as the production database and AWS S3 for static and media file hosting. The steps below document the full deployment and local setup procedure.
+
+### Heroku Deployment
+
+Before deploying, ensure these files exist:
+- requirements.txt  
+- Procfile  
+- cloudberry_clay/settings.py  
+- custom_storages.py  
+
+**Procfile:**
+```py
+web: gunicorn cloudberry_clay.wsgi:application
+```
+
+### 1. Create the Heroku App
+- Log in to Heroku  
+- Create new app  
+- Choose name and region  
+
+### 2. Attach the database
+- Add Heroku Postgres
+- DATABASE_URL is added automatically  
+
+### 3. Configure Config Vars
+
+```py
+Key	Value
+SECRET_KEY	your own secret key
+DATABASE_URL	(auto from Heroku)
+AWS_ACCESS_KEY_ID	your AWS key
+AWS_SECRET_ACCESS_KEY	your AWS secret
+AWS_STORAGE_BUCKET_NAME	cloudberryclay-media
+USE_AWS	True
+STRIPE_PUBLIC_KEY	your key
+STRIPE_SECRET_KEY	your key
+STRIPE_WH_SECRET	your webhook secret
+EMAIL_HOST_USER	your Gmail
+EMAIL_HOST_PASS	your Gmail app password
+DEBUG	False
+```
+
+Optional during setup:
+
+```
+DISABLE_COLLECTSTATIC	1
+```
+
+Remove after AWS is configured.
+
+### 4. Deploy from GitHub
+- Go to the Deploy tab.  
+- Under Deployment method, choose GitHub.  
+- Connect your GitHub account.  
+- Search for:
+
+```
+naomihunt25/cloudberry_clay
+```
+
+- Click Connect.  
+- Choose either:
+  - Automatic Deploys from `main`, or
+  - Manual deploy -> Deploy Branch
+
+Once the build completes, click Open App to verify deployment.
+
+## AWS S3 Setup 
+
+### 1. Create the Bucket
+- Name: `cloudberryclay-media`  
+- Region: `eu-north-1`  
+- Disable *Block all public access*  
+
+### 2. Bucket Configuration
+Folders created automatically:
+```
+static/
+media/
+```
+
+### 3. Stripe Configuration
+
+Add to Heroku:
+```
+STRIPE_PUBLIC_KEY
+STRIPE_SECRET_KEY
+STRIPE_WH_SECRET
+```
+
+Webhook URL:
+```
+https://cloudberryclay-738fadfc0577.herokuapp.com/checkout/wh/
+```
+
+## Gmail SMTP (Email)
+
+Add to Heroku:
+
+```
+EMAIL_HOST_USER
+EMAIL_HOST_PASS
+```
+
+Uses Gmail app password.
+
+## Local Development
+
+### 1. Clone
+
+```
+git clone https://github.com/naomihunt25/cloudberry_clay.git
+cd cloudberry_clay
+```
+
+### 2. Virtual Environment
+
+```py
+python3 -m venv venv
+source venv/bin/activate
+```
+
+### 3. Install Dependencies
+
+```
+pip3 install -r requirements.txt
+```
+
+### 4. env.py
+
+```py
+import os
+
+os.environ.setdefault("SECRET_KEY", "your-secret-key")
+os.environ.setdefault("DEVELOPMENT", "1")
+os.environ.setdefault("STRIPE_PUBLIC_KEY", "your-key")
+os.environ.setdefault("STRIPE_SECRET_KEY", "your-key")
+os.environ.setdefault("STRIPE_WH_SECRET", "your-key")
+os.environ.setdefault("AWS_ACCESS_KEY_ID", "your-key")
+os.environ.setdefault("AWS_SECRET_ACCESS_KEY", "your-secret")
+os.environ.setdefault("AWS_STORAGE_BUCKET_NAME", "cloudberryclay-media")
+os.environ.setdefault("EMAIL_HOST_USER", "your-email")
+os.environ.setdefault("EMAIL_HOST_PASS", "your-app-password")
+```
+
+### 5. Run Locally
+
+```py
+python3 manage.py makemigrations
+python3 manage.py migrate
+python3 manage.py createsuperuser
+python3 manage.py runserver
+```
+
+App runs at:
+
+```py
+http://127.0.0.1:8000/
+```
+
+## Forking the Repository
+
+1. Open GitHub repo  
+2. Click Fork
+3. Clone your new copy  
+
+### Live Website
+https://cloudberryclay-738fadfc0577.herokuapp.com/
+
+
+[Return to Table of Contents](#table-of-contents)
+
+## Credits
+
+### Content
+
+| Source | Comments |
+|--------|----------|
+| Django Documentation | General backend development guidance |
+| Boutique Ado (Code Institute) | Core project structure inspiration |
+| Bootstrap Documentation | Grid, layout, and responsive behaviour |
+| Stripe Documentation | Payment integration setup |
+| Amazon AWS Documentation | S3 bucket configuration |
+| Django Allauth Docs | User authentication and account management |
+| Stack Overflow | Various troubleshooting solutions |
+| Code Institute LMS | Project planning, testing and deployment standards |
+
+### Media & Images
+
+| Source | Type |
+|--------|------|
+| Canva | Hero images, product images, mockups  |
+| Google Fonts | Font families used across the site |
+| Favicon.io | Site favicon generation |
+| Balsamiq | Wireframe designs |
+
+### Additional References
+
+| Source | Type |
+|--------|------|
+| WebAIM | Accessibility best practices |
+| Heroku Docs | Hosting and deployment setup |
+| GitHub Docs | Repo, version control and collaboration tools |
+| Stripe API Examples | PaymentIntent integration |
+
+[Return to Table of Contents](#table-of-contents)

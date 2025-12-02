@@ -2,10 +2,19 @@
 
 This document details all testing carried out on Cloudberry Clay, including manual testing, validation, cross-browser checks, Stripe payment testing, user story verification and debugging completed during development.
 
-## Table of Contents
+# Table of Contents
+1. [Testing Overview](#testing-overview)
+2. [Manual Feature Testing](#manual-feature-testing)
+3. [User Story Testing](#user-story-testing)
+4. [Form and Authentication Testing](#form-and-authentication-testing)
+5. [Shopping Bag and Checkout Testing](#shopping-bag-and-checkout-testing)
+6. [Stripe Payment Testing](#stripe-payment-testing)
+7. [Responsiveness and Browser Testing](#responsiveness-and-browser-testing)
+8. [Performance and Accessibility](#performance-and-accessibility)
+9. [Code Validation](#code-validation)
+10. [Fixed bugs](#fixed-bugs)
 
-
-# 1. Testing Overview
+## Testing Overview
 
 Testing was carried out throughout development using:
 - Manual testing in the browser  
@@ -18,7 +27,9 @@ Testing was carried out throughout development using:
 
 No automated unit tests were included due to project scope, but extensive manual testing was performed.
 
-# 2. Manual Feature Testing
+[Return to Table of Contents](#table-of-contents)
+
+## Manual Feature Testing
 
 Each feature was tested to ensure it behaves correctly and provides the expected user experience.
 
@@ -101,7 +112,9 @@ Each feature was tested to ensure it behaves correctly and provides the expected
 ![Admin Page](documentation\features\cloudberry-admin.png)
 ![Admin Page 2](documentation\features\cloudberry-admin-2.png)
 
-# 3. User Story Testing
+[Return to Table of Contents](#table-of-contents)
+
+## User Story Testing
 
 Below shows how each user story was satisfied.
 
@@ -115,7 +128,9 @@ Below shows how each user story was satisfied.
 | View order history | Past orders | ✔ |
 | Admin CRUD | Manage products | ✔ |
 
-# 4. Form and Authentication Testing
+[Return to Table of Contents](#table-of-contents)
+
+## Form and Authentication Testing
 
 ## Registration
 - Correct input -> account created  
@@ -134,7 +149,9 @@ Below shows how each user story was satisfied.
 
 All authentication tests passed.
 
-# 5. Shopping Bag and Checkout Testing
+[Return to Table of Contents](#table-of-contents)
+
+## Shopping Bag and Checkout Testing
 
 ### Bag Tests
 - Adding items updates totals  
@@ -150,7 +167,9 @@ All authentication tests passed.
 
 All tests passed successfully.
 
-# 6. Stripe Payment Testing
+[Return to Table of Contents](#table-of-contents)
+
+## Stripe Payment Testing
 
 Stripe test mode was used with the official test cards.
 
@@ -165,7 +184,9 @@ Stripe test mode was used with the official test cards.
 Webhook also successfully validated payments after checkout.
 ![Checkout success page](documentation\features\cloudberry-checkout-success.png)
 
-# 7. Responsiveness and Browser Testing
+[Return to Table of Contents](#table-of-contents)
+
+## Responsiveness and Browser Testing
 
 Tested using Chrome DevTools, physical devices and online testing tools.
 
@@ -195,11 +216,26 @@ Tested using Chrome DevTools, physical devices and online testing tools.
 
 All layouts worked without major issues.
 
-# 8. Performance and Accessibility
+[Return to Table of Contents](#table-of-contents)
+
+## Performance and Accessibility
 
 ### Lighthouse Results
 
-# 9. Code Validation
+I used Lighthouse in Chrome DevTools to test the overall performance, accessibility and SEO of the deployed site. I ran the test on the Home Page, as this is the largest and most image-heavy page and therefore gives a realistic idea of how the site performs in general. Other pages on the site use the same layout and similar assets, so their results would be very similar.
+
+Accessibility, Best Practices and SEO all scored very well, which shows that the structure, contrast, metadata and general code quality are good.
+
+The performance score is lower, especially on mobile. This is expected because the site uses:
+- A large hero image
+- High-quality product images
+- External scripts like Stripe, Bootstrap and Google Fonts
+
+![Lighthouse testing](documentation\lighthouse\cloudberry-lighthouse.png)
+
+[Return to Table of Contents](#table-of-contents)
+
+## Code Validation
 
 ### HTML
 Passed W3C Validator using the W3C Markup Validation Service.
@@ -219,3 +255,61 @@ The project contains one custom JavaScript file used for Stripe payment integrat
 
 This file was tested using the JSHint online validator. No major issues were returned after resolving one minor missing semicolon. Warnings about undefined variables are expected because these are provided by external libraries and not defined within the script.
 ![Javascript validator](documentation/validation/cloudberry-javascript-validator.png)
+
+[Return to Table of Contents](#table-of-contents)
+
+## Fixed bugs
+
+### Bug 1 - Checkout page crashing with empty bag
+_Original code_:<br>
+
+```py
+def checkout(request):
+    bag = request.session.get('bag', {})
+```
+
+_New code_:<br>
+
+```py
+def checkout(request):
+    bag = request.session.get('bag', {})
+    if not bag:
+        messages.error(request, "Your shopping bag is empty.")
+        return redirect('products')
+```
+
+### Bug 2 - Profile form not saving updates
+_Original code_:<br>
+
+```py
+form = UserProfileForm(request.POST)
+```
+
+_New code_:<br>
+
+```py
+form = UserProfileForm(request.POST, instance=profile)
+```
+
+### Bug 3 - Search returning all products
+_Original code_:<br>
+
+```py
+query = request.GET['q']
+products = Product.objects.filter(name__icontains=query)
+```
+
+_New code_:<br>
+
+```py
+query = request.GET.get('q')
+if not query:
+    messages.error(request, "You didn't enter a search term.")
+    return redirect('products')
+
+products = Product.objects.filter(
+    Q(name__icontains=query) | Q(description__icontains=query)
+)
+```
+
+[Return to Table of Contents](#table-of-contents)
