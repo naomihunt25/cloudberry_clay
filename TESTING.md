@@ -42,7 +42,7 @@ Each feature was tested to ensure it behaves correctly and provides the expected
 | Responsive layout | Text and images scale correctly | ✔ |
 | CTA buttons | Navigate to product catalogue | ✔ |
 
-![Home Page](documentation\features\cloudberry-home.png)
+![Home Page](documentation/features/cloudberry-home.png)
 
 ## Products Page
 
@@ -54,7 +54,7 @@ Each feature was tested to ensure it behaves correctly and provides the expected
 | Search bar | Returns relevant results | ✔ |
 | Clicking product | Opens product detail page | ✔ |
 
-![Products Page](documentation\features\cloudberry-products.png)
+![Products Page](documentation/features/cloudberry-products.png)
 
 ## Product Detail Page
 
@@ -65,7 +65,7 @@ Each feature was tested to ensure it behaves correctly and provides the expected
 | Quantity validation | Cannot go below 1 | ✔ |
 | Toast messages | Confirm item was added | ✔ |
 
-![Product Detail Page](documentation\features\cloudberry-product-detail.png)
+![Product Detail Page](documentation/features/cloudberry-product-detail.png)
 
 ## Shopping Bag
 
@@ -76,7 +76,7 @@ Each feature was tested to ensure it behaves correctly and provides the expected
 | Delivery threshold | Updates dynamically | ✔ |
 | Bag total | Calculates correctly | ✔ |
 
-![Bag Page](documentation\features\cloudberry-bag.png)
+![Bag Page](documentation/features/cloudberry-bag.png)
 
 ## Checkout Page
 
@@ -87,7 +87,7 @@ Each feature was tested to ensure it behaves correctly and provides the expected
 | Payment submission | Proceeds to confirmation | ✔ |
 | Order saved | Visible in admin & user profile | ✔ |
 
-![Checkout Page](documentation\features\cloudberry-checkout.png)
+![Checkout Page](documentation/features/cloudberry-checkout.png)
 
 ## User Profile
 
@@ -98,7 +98,7 @@ Each feature was tested to ensure it behaves correctly and provides the expected
 | View order history | Shows list of past orders | ✔ |
 | View order detail | Displays receipt | ✔ |
 
-![Profile Page](documentation\features\cloudberry-profile.png)
+![Profile Page](documentation/features/cloudberry-profile.png)
 
 ## Admin (Superuser Only)
 
@@ -109,8 +109,8 @@ Each feature was tested to ensure it behaves correctly and provides the expected
 | Delete product | Removes from database | ✔ |
 | Access control | Hidden from normal users | ✔ |
 
-![Admin Page](documentation\features\cloudberry-admin.png)
-![Admin Page 2](documentation\features\cloudberry-admin-2.png)
+![Admin Page](documentation/features/cloudberry-admin.png)
+![Admin Page 2](documentation/features/cloudberry-admin-2.png)
 
 [Return to Table of Contents](#table-of-contents)
 
@@ -182,7 +182,7 @@ Stripe test mode was used with the official test cards.
 | Incorrect CVC | `4000 0000 0000 0101` | Error shown | ✔ |
 
 Webhook also successfully validated payments after checkout.
-![Checkout success page](documentation\features\cloudberry-checkout-success.png)
+![Checkout success page](documentation/features/cloudberry-checkout-success.png)
 
 [Return to Table of Contents](#table-of-contents)
 
@@ -231,7 +231,7 @@ The performance score is lower, especially on mobile. This is expected because t
 - High-quality product images
 - External scripts like Stripe, Bootstrap and Google Fonts
 
-![Lighthouse testing](documentation\lighthouse\cloudberry-lighthouse.png)
+![Lighthouse testing](documentation/lighthouse/cloudberry-lighthouse.png)
 
 [Return to Table of Contents](#table-of-contents)
 
